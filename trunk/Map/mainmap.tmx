@@ -4,9 +4,12 @@
  <tileset name="Desert" firstgid="1" tilewidth="32" tileheight="32" spacing="1" margin="1">
   <image source="../../../../../python/tiled-0.7.1/examples/tmw_desert_spacing.png"/>
  </tileset>
+ <tileset name="page1" firstgid="49" tilewidth="32" tileheight="32">
+  <image source="../../136e0000.gif" trans="ff00ff"/>
+ </tileset>
  <layer name="Layer 0" width="32" height="32">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAO3SOwqAQBAE0WEzMVs08AurGKj3v5+dmOsw0IIdVPySaswsk2pRjWZSlXz58uXLl/9hv0O9syHAL2hxtgb4OzpetgX6nor8X/v3syfJf5J8+fK5/ogSqQldbqdU3AAQAAA=
+   H4sIAAAAAAAAAO3WXQuCMBTG8VWgRaAhaS9WoNJFot//6/lcTJDYGzuLgZ2L/5XCD5zb2VkIUUSqREf0itRh4d/QnVBN9BvUEuqI/gf1Hr0D+b417LPPPvsr9k2zaZT+oHlumkuuPmU2mb6Lq+8zm1zmUoj1p/wX7LP/L36CUtle4VPv37pzcfYzlMtOCp96/7adfzbf9/7tev7Z/F+vf2y/QhfZNYKv238PtA3c7svfaN57ogm+Ze1HABAAAA==
   </data>
  </layer>
 </map>
