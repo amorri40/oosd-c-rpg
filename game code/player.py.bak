@@ -1,0 +1,43 @@
+import pygame, sys,os
+class Player:
+    
+    def __init__(self):
+        #global xprevious,x,y
+        self.xprevious=0
+        self.x=150
+        self.y=150
+        self.hspeed=0
+        self.vspeed=0
+        player_image_up = os.path.join("images","player.png")
+        player_image_down = os.path.join("images","player_down.png")
+        player_image_left = os.path.join("images","player_left.png")
+        player_image_right = os.path.join("images","player_right.png")
+        self.player_up = pygame.image.load(player_image_up)
+        self.player_down = pygame.image.load(player_image_down)
+        self.player_left = pygame.image.load(player_image_left)
+        self.player_right = pygame.image.load(player_image_right)
+        self.player_sprite = self.player_up
+        
+        
+    def move(self) :
+        self.xprevious=x
+        self.yprevious=y
+        self.x=self.x+self.hspeed
+        self.y=self.y+self.vspeed  
+        
+    def draw(self,surface):
+        surface.blit(self.player_sprite, (self.x,self.y))
+        
+    def moveUp(self):
+        self.vspeed=-0.2
+        self.player_sprite = self.player_up
+    def moveDown(self):
+        self.vspeed=0.2
+        self.player_sprite = self.player_down
+    def moveRight(self):
+        self.hspeed=0.2
+        self.player_sprite = self.player_right
+    def moveLeft(self):
+        self.hspeed=-0.2
+        self.player_sprite = self.player_left
+    
