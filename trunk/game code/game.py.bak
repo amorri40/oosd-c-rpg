@@ -1,6 +1,7 @@
 import pygame, sys,os
 from pygame.locals import * 
 from MainScene import MainScene
+from splash import Splashscreen
  
 pygame.init()
 running = True
@@ -25,6 +26,7 @@ def input(events):
 class Game:
     def __init__(self,scene):
         self.currentScene = scene
+        splash = Splashscreen()
     def run(self):
          while running: 
             input(pygame.event.get())
