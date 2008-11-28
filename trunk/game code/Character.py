@@ -5,7 +5,7 @@ class Character:
     #Set up a character with a certain attributes
     def __init__(self, health, attackPower, defense):
 
-        #self.name = name
+        self.name = 'Jordan'
         self.health = health
         self.attackPower = attackPower
         self.defense = defense
@@ -59,11 +59,25 @@ class Character:
         temp = pl.getHealth() - self.attackPower
         pl.setHealth(temp)
 
-        print "Hello!"
+        print "----------"
+        print str(pl.getName()) + " has lost " + str(self.getAttackPower()) + " health points."
+        print str(pl.getName()) + " now has " + str(pl.getHealth()) + " health points."
+        print "----------"
+        
+        self.checkIfDead(pl)
 
-
-       
-
+    #A method to check if someone has died   
+    def checkIfDead(self, player):
+        
+        if player.getHealth() <= 0:
+            
+            print str(player.getName()) + " has been killed!"
+            
+    
+        
+            
+        
+            
 
 
 
