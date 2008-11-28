@@ -17,7 +17,12 @@ class Player:
         self.player_left = pygame.image.load(player_image_left)
         self.player_right = pygame.image.load(player_image_right)
         self.player_sprite = self.player_up
-        
+        self.step=0 #which step its on used for random battles
+    
+    def checkbattle(self):
+        if self.step == 10:
+            print "random battle"
+            self.step=0    
         
     def move(self) :
         self.xprevious=self.x
