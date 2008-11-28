@@ -51,6 +51,7 @@ class MainScene(Scene):
         self.viewhspeed=0
         self.viewxprevious=0
         self.viewyprevious=0
+        self.game = 0
     
         
     def createObjects(self):
