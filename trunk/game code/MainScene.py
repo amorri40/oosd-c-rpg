@@ -1,9 +1,10 @@
 import pygame, sys,os
 from player import Player
 from gameobject import GameObject
+from Scene import Scene
 from pygame.locals import * 
 
-class MainScene:
+class MainScene(Scene):
     """
     The Mainscene class is where the main game takes place.
     """
@@ -50,6 +51,7 @@ class MainScene:
         self.viewhspeed=0
         self.viewxprevious=0
         self.viewyprevious=0
+        self.game = 0
     
         
     def createObjects(self):
@@ -60,6 +62,16 @@ class MainScene:
         self.objects = [GameObject(20,20,os.path.join("images","player.png"),pygame.Rect(20,20,18,24))]
         self.objects.append(GameObject(200,200,os.path.join("images","player.png"),pygame.Rect(200,200,18,24)))
     
+    def update(self):
+        """
+        This method will be called everytime the game is drawn to update the player and other game 
+        objects to new positions. Main game logic is performed here.
+        """
+        pl.move() #move the player to the new position
+        self.checkForCollisions() #check if the player collides with any game object
+        self.moveScene()#move the scene when the player moves
+        pl.checkbattle()#check if random battle has occured
+        
     def draw(self):
         """
         This will be called for every frame that is drawn, it will
@@ -67,11 +79,11 @@ class MainScene:
         """
         view.blit(background, (0, 0)) #draw the background image onto the view
         
-        pl.move() #move the player to the new position
-        self.checkForCollisions() #check if the player collides with any game object
+        self.update()#update the scene
+        
         
         pl.draw(view)#draw the player
-        self.moveScene()#move the scene when the player moves
+        
         screenbackground.blit(view, (self.viewx, self.viewy))#draw the view onto screenbackground
         screen.blit(screenbackground,(0,0))#draw the main game to the screen
         
@@ -98,6 +110,7 @@ class MainScene:
             
         for event in events:  
           if event.type == KEYDOWN:
+            pl.step = pl.step+1
             if event.key == K_ESCAPE:
               sys.exit(0)
             if event.key == K_UP:

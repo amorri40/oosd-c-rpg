@@ -8,12 +8,6 @@ running = True
 window = pygame.display.set_mode((300, 300)) 
 pygame.display.set_caption('RPG game coursework') 
 
-
-#monkey_head_file_name = os.path.join("data","chimp.bmp")
-
-#monkey_surface = pygame.image.load(monkey_head_file_name)
-
-#screen.blit(monkey_surface, (0,0)) 
 pygame.display.flip() 
  
 ms = MainScene()
@@ -27,8 +21,16 @@ def input(events):
          ms.event(events) 
 
 
- 
-while running: 
-   input(pygame.event.get())
-   pygame.display.flip() 
-   ms.draw()
+
+class Game:
+    def __init__(self,scene):
+        self.currentScene = scene
+    def run(self):
+         while running: 
+            input(pygame.event.get())
+            pygame.display.flip() 
+            self.currentScene.draw()
+
+g = Game(ms)
+ms.game = g
+g.run()

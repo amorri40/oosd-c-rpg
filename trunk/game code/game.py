@@ -21,8 +21,16 @@ def input(events):
          ms.event(events) 
 
 
- 
-while running: 
-   input(pygame.event.get())
-   pygame.display.flip() 
-   ms.draw()
+
+class Game:
+    def __init__(self,scene):
+        self.currentScene = scene
+    def run(self):
+         while running: 
+            input(pygame.event.get())
+            pygame.display.flip() 
+            self.currentScene.draw()
+
+g = Game(ms)
+ms.game = g
+g.run()
