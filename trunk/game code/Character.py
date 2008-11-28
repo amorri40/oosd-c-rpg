@@ -3,9 +3,9 @@
 class Character:
 
     #Set up a character with a certain attributes
-    def __init__(self, health, attackPower, defense):
+    def __init__(self, name1, health, attackPower, defense):
 
-        self.name = 'Jordan'
+        self.name = name1
         self.health = health
         self.attackPower = attackPower
         self.defense = defense
