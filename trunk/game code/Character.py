@@ -56,8 +56,8 @@ class Character:
     #A method to attack another Character
     def attack(self, pl):
 
-        temp = p1.getHealth() - self.attackPower
-        p1.setHealth(temp)
+        temp = pl.getHealth() - self.attackPower
+        pl.setHealth(temp)
 
         print "Hello!"
 
