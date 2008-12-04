@@ -1,7 +1,7 @@
 import pygame, sys,os
 from pygame.locals import * 
 from MainScene import MainScene
-from splash import Splashscreen
+from splashscreen import Splashscreen
  
 pygame.init()
 running = True
