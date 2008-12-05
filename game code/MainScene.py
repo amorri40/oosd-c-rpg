@@ -61,7 +61,7 @@ class MainScene(Scene):
         """
         
         self.objects = [GameObject(20,20,os.path.join("images","player.png"),pygame.Rect(20,20,18,24))]
-        self.objects.append(GameObject(200,200,os.path.join("images","player.png"),pygame.Rect(200,200,18,24)))
+        #self.objects.append(GameObject(200,200,os.path.join("images","player.png"),pygame.Rect(200,200,18,24)))
         #self.objects.append(GameObject(0,0,"",pygame.Rect(16,32,736-16,608-32)))#collision for boundary
         self.objects.append(GameObject(200,200,"",pygame.Rect(48,96,190-48,176-96)))#collision for a building
         self.objects.append(GameObject(200,200,"",pygame.Rect(240,96,432-240,176-96)))#collision for a building
@@ -76,6 +76,13 @@ class MainScene(Scene):
         self.objects.append(GameObject(0,0,"",pygame.Rect(0,0,14,640)))#collision for left boundary
         self.objects.append(GameObject(751,0,"",pygame.Rect(751,0,14,640)))#collision for right boundary
         self.objects.append(GameObject(0,608,"",pygame.Rect(0,608,768,30)))#collision for bottom boundary
+        self.objects.append(GameObject(0,0,"",pygame.Rect(0,0,447,15)))#collision for top left boundary
+        self.objects.append(GameObject(496,0,"",pygame.Rect(496,0,300,15)))#collision for top right boundary
+
+        
+        self.objects.append(GameObject(0,50,"",pygame.Rect(0,50,447,19)))#collision for water left
+        self.objects.append(GameObject(496,48,"",pygame.Rect(496,48,300,19)))#collision for water right
+
     
     def update(self):
         """
