@@ -2,6 +2,7 @@ import pygame, sys,os
 from pygame.locals import * 
 from MainScene import MainScene
 from splashscreen import Splashscreen
+from BattleScene import BattleScene
 
  
 pygame.init()
@@ -12,7 +13,7 @@ pygame.display.set_caption('RPG game coursework')
 
 pygame.display.flip() 
  
-ms = MainScene()
+ms = BattleScene()
 
 def input(events): 
    for event in events: 
