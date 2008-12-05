@@ -10,3 +10,6 @@ class Splashscreen:
         screen.blit(background, (0, 0)) # imports background into screen
         pygame.display.update()
         pygame.time.wait(3000)#screen displays for 3 seconds
+        screen.fill(0)
+        pygame.display.update()  #displays a black screen for a second
+        pygame.time.wait(1000)
