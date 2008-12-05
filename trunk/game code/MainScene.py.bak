@@ -29,6 +29,8 @@ class MainScene(Scene):
         background = background.convert()
         backimg = os.path.join("images","background2.png")
         backimage = pygame.image.load(backimg)
+        backimg_above = os.path.join("images","background2_above.png")
+        backimage_above = pygame.image.load(backimg_above)
         #background.fill((51, 153, 0))
         background.blit(backimage,(0,0))
         
@@ -77,6 +79,7 @@ class MainScene(Scene):
         self.objects.append(GameObject(751,0,"",pygame.Rect(751,0,14,640)))#collision for right boundary
         self.objects.append(GameObject(0,608,"",pygame.Rect(0,608,768,30)))#collision for bottom boundary
         self.objects.append(GameObject(0,0,"",pygame.Rect(0,0,447,15)))#collision for top left boundary
+        self.objects.append(GameObject(496,0,"",pygame.Rect(496,0,300,15)))#collision for top right boundary
 
         
         self.objects.append(GameObject(0,50,"",pygame.Rect(0,50,447,19)))#collision for water left
@@ -112,7 +115,7 @@ class MainScene(Scene):
         """
         Move the view so that it moves with the player
         """
-        #if self.viewx<700:
+        
         
         if pl.x>180 and pl.x<680:
             self.viewxprevious=self.viewx
@@ -120,12 +123,7 @@ class MainScene(Scene):
         if pl.y>180 and pl.y<520:
             self.viewyprevious=self.viewy
             self.viewy = self.viewy+self.viewvspeed
-        #else:
-         #   pl.x=0
-          #  self.viewx=self.viewxprevious
-        #if self.viewy<700:
-        #    self.viewyprevious=self.viewy
-        #    self.viewy = self.viewy+self.viewvspeed
+        
         if self.viewx>=0:
             self.viewx=0
         elif self.viewx<=-468:

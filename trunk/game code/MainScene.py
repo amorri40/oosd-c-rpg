@@ -29,6 +29,8 @@ class MainScene(Scene):
         background = background.convert()
         backimg = os.path.join("images","background2.png")
         backimage = pygame.image.load(backimg)
+        backimg_above = os.path.join("images","background2_above.png")
+        self.backimage_above = pygame.image.load(backimg_above)
         #background.fill((51, 153, 0))
         background.blit(backimage,(0,0))
         
@@ -107,13 +109,14 @@ class MainScene(Scene):
         pl.draw(view)#draw the player
         
         screenbackground.blit(view, (self.viewx, self.viewy))#draw the view onto screenbackground
+        screenbackground.blit(self.backimage_above,(self.viewx, self.viewy))
         screen.blit(screenbackground,(0,0))#draw the main game to the screen
         
     def moveScene(self):
         """
         Move the view so that it moves with the player
         """
-        #if self.viewx<700:
+        
         
         if pl.x>180 and pl.x<680:
             self.viewxprevious=self.viewx
@@ -121,12 +124,7 @@ class MainScene(Scene):
         if pl.y>180 and pl.y<520:
             self.viewyprevious=self.viewy
             self.viewy = self.viewy+self.viewvspeed
-        #else:
-         #   pl.x=0
-          #  self.viewx=self.viewxprevious
-        #if self.viewy<700:
-        #    self.viewyprevious=self.viewy
-        #    self.viewy = self.viewy+self.viewvspeed
+        
         if self.viewx>=0:
             self.viewx=0
         elif self.viewx<=-468:
