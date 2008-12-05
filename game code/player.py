@@ -4,8 +4,8 @@ class Player:
     def __init__(self):
         #global xprevious,x,y
         self.xprevious=0
-        self.x=150
-        self.y=150
+        self.x=192
+        self.y=128
         self.hspeed=0
         self.vspeed=0
         player_image_up = os.path.join("images","player.png")

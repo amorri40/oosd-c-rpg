@@ -3,7 +3,11 @@ class GameObject:
     def __init__(self,x,y,imagefile,rectangle):
         self.x=x
         self.y=y
-        self.image=pygame.image.load(imagefile)
+        if imagefile is not "":
+         self.image=pygame.image.load(imagefile)
+        else:
+            self.image=""
         self.rect=rectangle #rectangle used for collision
     def draw(self,surface):
-        surface.blit(self.image, (self.x,self.y))
+        if self.image is not "":
+         surface.blit(self.image, (self.x,self.y))

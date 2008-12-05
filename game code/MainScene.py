@@ -59,8 +59,23 @@ class MainScene(Scene):
         Create the main game objects and put the into the objects array,
         this should be called at the start of the scene.
         """
+        
         self.objects = [GameObject(20,20,os.path.join("images","player.png"),pygame.Rect(20,20,18,24))]
         self.objects.append(GameObject(200,200,os.path.join("images","player.png"),pygame.Rect(200,200,18,24)))
+        #self.objects.append(GameObject(0,0,"",pygame.Rect(16,32,736-16,608-32)))#collision for boundary
+        self.objects.append(GameObject(200,200,"",pygame.Rect(48,96,190-48,176-96)))#collision for a building
+        self.objects.append(GameObject(200,200,"",pygame.Rect(240,96,432-240,176-96)))#collision for a building
+        self.objects.append(GameObject(200,200,"",pygame.Rect(512,96,720-512,192-96)))#collision for a building
+        self.objects.append(GameObject(48,224,"",pygame.Rect(48,224,240-48,304-208)))#collision for a building
+        self.objects.append(GameObject(288,224,"",pygame.Rect(288,224,432-288,304-224)))#collision for a building
+        self.objects.append(GameObject(192,352,"",pygame.Rect(192,352,432-192,432-352)))#collision for a building (eating place)
+        self.objects.append(GameObject(48,480,"",pygame.Rect(48,480,240-48,560-480)))#collision for a building (potion)
+        self.objects.append(GameObject(288,480,"",pygame.Rect(288,480,432-288,560-480)))#collision for a building(house)
+        self.objects.append(GameObject(512,415,"",pygame.Rect(512,415,720-512,575-415)))#collision for a building (church)
+        
+        self.objects.append(GameObject(0,0,"",pygame.Rect(0,0,14,640)))#collision for left boundary
+        self.objects.append(GameObject(751,0,"",pygame.Rect(751,0,14,640)))#collision for right boundary
+        self.objects.append(GameObject(0,608,"",pygame.Rect(0,608,768,30)))#collision for bottom boundary
     
     def update(self):
         """
@@ -91,17 +106,28 @@ class MainScene(Scene):
         """
         Move the view so that it moves with the player
         """
-        if self.viewx<700:
-          self.viewxprevious=self.viewx
-          self.viewx = self.viewx+self.viewhspeed
-        else:
-            pl.x=0
-            self.viewx=self.viewxprevious
-        if self.viewy<700:
+        #if self.viewx<700:
+        
+        if pl.x>180 and pl.x<680:
+            self.viewxprevious=self.viewx
+            self.viewx = self.viewx+self.viewhspeed
+        if pl.y>180 and pl.y<520:
             self.viewyprevious=self.viewy
             self.viewy = self.viewy+self.viewvspeed
-        
-    
+        #else:
+         #   pl.x=0
+          #  self.viewx=self.viewxprevious
+        #if self.viewy<700:
+        #    self.viewyprevious=self.viewy
+        #    self.viewy = self.viewy+self.viewvspeed
+        if self.viewx>=0:
+            self.viewx=0
+        elif self.viewx<=-468:
+            self.viewx=-468
+        if self.viewy>=0:
+            self.viewy=0
+        if self.viewy<=-340:
+            self.viewy=-340
       
     def event(self,events): 
         """
