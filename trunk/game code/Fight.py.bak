@@ -8,7 +8,12 @@ class Fight:
         
         fi.attackPlayer()
         fi.attackEnemy()
-        fi.useSpecialAttack()
+        fi.attackPlayer()
+        fi.attackEnemy()
+        fi.attackPlayer()
+        fi.attackEnemy()
+        fi.attackPlayer()
+        fi.attackEnemy()
     
 f = Fight()
 
