@@ -1,15 +1,13 @@
-import pygame, sys, pygame.movie
+import pygame, pygame.movie
 from pygame.locals import *
 
 def movie():
-    global screen
     pygame.display.init()
-    film = pygame.movie.Movie("steinmovie.mpg")
+    movie = pygame.movie.Movie('steinmovie.mpg')
+    get_size = width, height = 300, 300
     width, height = movie.get_size()
-    size = width, height = 300, 300
-    screen = pygame.display.set_mode(size)
-    return movie
+    pygame_surface = pygame.display.set_mode(get_size)
+    movie.set_display(pygame_surface)
+    movie.play()
 pygame.init()
 movie2 = movie()
-movie2.set_display(screen)
-movie2.play
