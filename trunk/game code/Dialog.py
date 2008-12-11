@@ -14,4 +14,4 @@ class Dialog:
             
             surface.blit (self.text, (5, 35))
     def setmessage(self,message):
-        self.text = self.fontobject.render(message, 1, (255,255,255), (33,33,33))
+        self.text = self.fontobject.render(message, 1, (255,255,255))
