@@ -11,3 +11,7 @@ class GameObject:
     def draw(self,surface):
         if self.image is not "":
          surface.blit(self.image, (self.x,self.y))
+        
+    def collision(self):
+        collision=1
+    
