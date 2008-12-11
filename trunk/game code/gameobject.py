@@ -14,4 +14,6 @@ class GameObject:
         
     def collision(self):
         collision=1
+    def nocollision(self):
+        nocollision=1
     

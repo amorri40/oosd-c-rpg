@@ -39,8 +39,7 @@ class Game:
         self.currentScene=HouseScene()
     def gotoMain(self):
         self.currentScene=MainScene()    
-        pl.x=300
-        pl.y=300
+        
     def input(self,events): 
      for event in events: 
       if event.type == QUIT:
