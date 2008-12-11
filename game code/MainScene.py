@@ -5,6 +5,7 @@ from Scene import Scene
 from pygame.locals import * 
 from HouseScene import HouseScene
 from npc import Npc
+from Dialog import Dialog
 
 class MainScene(Scene):
     """
@@ -20,6 +21,11 @@ class MainScene(Scene):
         screen = pygame.display.get_surface() 
         screenbackground = pygame.Surface(pygame.display.get_surface().get_size())
         screenbackground.fill((0,0,0))
+        
+        """
+        Setup Dialog
+        """
+        self.di=Dialog()
         
         """
         Setup background
@@ -97,6 +103,8 @@ class MainScene(Scene):
         npc=Npc(560,240,os.path.join("images","player.png"),pygame.Rect(560,240,18,24))
         self.objects.append(npc)
         npc.setMessage("Hello I am a non player character")
+        npc.colide=1
+        npc.di=self.di
     def update(self):
         """
         This method will be called everytime the game is drawn to update the player and other game 
@@ -121,8 +129,9 @@ class MainScene(Scene):
         
         screenbackground.blit(view, (self.viewx, self.viewy))#draw the view onto screenbackground
         screenbackground.blit(self.backimage_above,(self.viewx, self.viewy))
-        screen.blit(screenbackground,(0,0))#draw the main game to the screen
         
+        screen.blit(screenbackground,(0,0))#draw the main game to the screen
+        self.di.draw(screen,0, 0)
     def moveScene(self):
         """
         Move the view so that it moves with the player
@@ -172,6 +181,8 @@ class MainScene(Scene):
            pl.hspeed=0
            self.viewhspeed=0
            self.viewvspeed=0
+          if event.key == K_RETURN:
+                self.di.visible=False
     
     
     def checkForCollisions(self):
@@ -196,5 +207,7 @@ class MainScene(Scene):
                 pl.x=pl.xprevious
                 pl.y=pl.yprevious
                 self.objects[i].collision()
+            else:
+                self.objects[i].nocollision()
             i=i+1
-        
+            

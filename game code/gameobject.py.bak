@@ -8,7 +8,12 @@ class GameObject:
         else:
             self.image=""
         self.rect=rectangle #rectangle used for collision
-    def draw(self,surface):
+    def draw(self,surface,x,y):
         if self.image is not "":
-         surface.blit(self.image, (self.x,self.y))
+         surface.blit(self.image, (x,y))
+        
+    def collision(self):
+        collision=1
+    def nocollision(self):
+        nocollision=1
     
