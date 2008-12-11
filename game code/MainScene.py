@@ -4,6 +4,7 @@ from gameobject import GameObject
 from Scene import Scene
 from pygame.locals import * 
 from HouseScene import HouseScene
+from npc import Npc
 
 class MainScene(Scene):
     """
@@ -91,8 +92,11 @@ class MainScene(Scene):
         
         self.objects.append(GameObject(0,50,"",pygame.Rect(0,50,447,19)))#collision for water left
         self.objects.append(GameObject(496,48,"",pygame.Rect(496,48,300,19)))#collision for water right
-
-    
+        
+        #add npc's
+        npc=Npc(560,240,os.path.join("images","player.png"),pygame.Rect(560,240,18,24))
+        self.objects.append(npc)
+        npc.setMessage("Hello I am a non player character")
     def update(self):
         """
         This method will be called everytime the game is drawn to update the player and other game 
@@ -191,6 +195,6 @@ class MainScene(Scene):
                 self.viewy=self.viewyprevious
                 pl.x=pl.xprevious
                 pl.y=pl.yprevious
-              
+                self.objects[i].collision()
             i=i+1
         
