@@ -4,23 +4,26 @@ from gameobject import GameObject
 from Scene import Scene
 from pygame.locals import * 
 
+
 class HouseScene(Scene):
     """
-    The Housescene class is where the main game takes place.
+    The Housescene class is where the player wanders about a house level
     """
     def __init__(self):
         """
-        Constructor used for initialising the main scene
+        Constructor is used to initialis the housescene
         """
         global pl
         pl = Player()
+        pl.x=77
+        pl.y=225
         global screen,screenbackground
         screen = pygame.display.get_surface() 
         screenbackground = pygame.Surface(pygame.display.get_surface().get_size())
         screenbackground.fill((0,0,0))
         
         """
-        Setup background
+        This is to set up the background
         """
         global background,view
         
@@ -29,20 +32,17 @@ class HouseScene(Scene):
         background = background.convert()
         backimg = os.path.join("images","housebackground.jpg")
         backimage = pygame.image.load(backimg)
-        #background.fill((51, 153, 0))
         background.blit(backimage,(0,0))
         
         """
-        Setup game objects
+        This sets up the game objects
         """
-        #Now create all the game objects
         self.createObjects() 
-        #draw the objects one by one on to the background image
         i=0
         while i<len(self.objects):
             self.objects[i].draw(background)
             i=i+1
-        #create a new view which will be the main play area
+            
         view = pygame.Surface((1024,1024))
         
         self.viewx=0
@@ -56,21 +56,23 @@ class HouseScene(Scene):
         
     def createObjects(self):
         """
-        Create the main game objects and put the into the objects array,
+        Create the housescene game objects and puts them into the objects array,
         this should be called at the start of the scene.
         """
         
-        self.objects = [GameObject(0,0,"",pygame.Rect(0,0,300,61))]
-        self.objects.append(GameObject(0,0,"",pygame.Rect(0,0,26,236)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(0,236,71,63)))
-        #self.objects.append(GameObject(200,200,os.path.join("images","player.png"),pygame.Rect(200,200,18,24)))
-        #self.objects.append(GameObject(0,0,"",pygame.Rect(16,32,736-16,608-32)))#collision for boundary
+        self.objects = [GameObject(0,0,"",pygame.Rect(0,0,300,50))]
+        self.objects.append(GameObject(0,0,"",pygame.Rect(0,0,26,226)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(0,236,71,53)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(105,235,58,54)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(151,151,12,76)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(27,42,77,92)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(163,152,125,4)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(275,0,11,156)))
         
     
     def update(self):
         """
-        This method will be called everytime the game is drawn to update the player and other game 
-        objects to new positions. Main game logic is performed here.
+        The logic of the main game is performed here. This will be called everytime the player moves and the screen is redrawn.
         """
         pl.move() #move the player to the new position
         self.checkForCollisions() #check if the player collides with any game object
@@ -78,8 +80,7 @@ class HouseScene(Scene):
         
     def draw(self):
         """
-        This will be called for every frame that is drawn, it will
-        draw the scene and update the game.
+        This will be called for every frame that is drawn, it will draw the scene and update the game.
         """
         view.blit(background, (0, 0)) #draw the background image onto the view
         
@@ -144,9 +145,15 @@ class HouseScene(Scene):
     
     def checkForCollisions(self):
         """
-        This method checks the player rectangle against all game rectangles
-        This is called everytime the room is drawn
+        This method checks the player rectangle against all game rectangles. This is called everytime the room is drawn
         """
+        playerrect = pygame.Rect(pl.x,pl.y,18,24)
+        mainrect=GameObject(0,0,"",pygame.Rect(72,291,103-72,294-291))#collision for a building (eating place)
+        if (playerrect.colliderect(mainrect)):
+            self.game.currentScene=self.game.mainscene
+            
+            
+            
         i=0
         while i<len(self.objects):
             playerrect = pygame.Rect(pl.x,pl.y,18,24)

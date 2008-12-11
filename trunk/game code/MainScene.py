@@ -3,6 +3,7 @@ from player import Player
 from gameobject import GameObject
 from Scene import Scene
 from pygame.locals import * 
+from HouseScene import HouseScene
 
 class MainScene(Scene):
     """
@@ -70,7 +71,13 @@ class MainScene(Scene):
         self.objects.append(GameObject(200,200,"",pygame.Rect(512,96,720-512,192-96)))#collision for a building
         self.objects.append(GameObject(48,224,"",pygame.Rect(48,224,240-48,304-208)))#collision for a building
         self.objects.append(GameObject(288,224,"",pygame.Rect(288,224,432-288,304-224)))#collision for a building
-        self.objects.append(GameObject(192,352,"",pygame.Rect(192,352,432-192,432-352)))#collision for a building (eating place)
+        #self.objects.append(GameObject(192,352,"",pygame.Rect(192,352,432-192,432-352)))#collision for a building (eating place)
+        self.objects.append(GameObject(192,352,"",pygame.Rect(192,352,250-192,432-352)))#collision for a building (eating place)
+        self.objects.append(GameObject(192,352,"",pygame.Rect(275,352,431-275,432-352)))#collision for a building (eating place)
+        self.objects.append(GameObject(192,352,"",pygame.Rect(252,352,272-252,400-352)))#collision for a building (eating place)
+        
+        
+        
         self.objects.append(GameObject(48,480,"",pygame.Rect(48,480,240-48,560-480)))#collision for a building (potion)
         self.objects.append(GameObject(288,480,"",pygame.Rect(288,480,432-288,560-480)))#collision for a building(house)
         self.objects.append(GameObject(512,415,"",pygame.Rect(512,415,720-512,575-415)))#collision for a building (church)
@@ -168,9 +175,17 @@ class MainScene(Scene):
         This method checks the player rectangle against all game rectangles
         This is called everytime the room is drawn
         """
+        playerrect = pygame.Rect(pl.x,pl.y,18,24)
+        houserect=GameObject(192,352,"",pygame.Rect(255,400,256-255,403-400))#collision for a building (eating place)
+        if (playerrect.colliderect(houserect)):
+            self.game.currentScene=HouseScene()
+            self.game.currentScene.game=self.game
+            pl.y=pl.y+20
+            self.viewy=self.viewy-20
+            self.viewvspeed=0
         i=0
         while i<len(self.objects):
-            playerrect = pygame.Rect(pl.x,pl.y,18,24)
+            
             if playerrect.colliderect(self.objects[i].rect) == 1:
                 self.viewx=self.viewxprevious
                 self.viewy=self.viewyprevious
