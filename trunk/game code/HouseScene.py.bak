@@ -70,10 +70,10 @@ class HouseScene(Scene):
         self.objects.append(GameObject(0,0,"",pygame.Rect(275,0,11,156)))
         self.objects.append(GameObject(0,0,"",pygame.Rect(42,176,12,8)))
         self.objects.append(GameObject(0,0,"",pygame.Rect(122,176,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(170,112,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(170,64,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(234,64,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(234,112,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(150,112,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(150,64,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(214,64,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(214,112,12,8)))
         
     
     def update(self):
