@@ -181,6 +181,8 @@ class MainScene(Scene):
            pl.hspeed=0
            self.viewhspeed=0
            self.viewvspeed=0
+          if event.key == K_RETURN:
+                self.di.visible=False
     
     
     def checkForCollisions(self):

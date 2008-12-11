@@ -1,4 +1,5 @@
 import pygame, sys,os
+import random
 class Player:
     
     def __init__(self):
@@ -20,7 +21,7 @@ class Player:
         self.step=0 #which step its on used for random battles
     
     def checkbattle(self):
-        if self.step == 10:
+        if self.step == random.randrange(1, 600):
             print "random battle"
             self.step=0    
         

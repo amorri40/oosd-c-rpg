@@ -1,11 +1,12 @@
 import pygame, sys,os
+import random
 class Player:
     
     def __init__(self):
         #global xprevious,x,y
         self.xprevious=0
-        self.x=448
-        self.y=592
+        self.x=192
+        self.y=128
         self.hspeed=0
         self.vspeed=0
         player_image_up = os.path.join("images","player.png")
@@ -20,7 +21,7 @@ class Player:
         self.step=0 #which step its on used for random battles
     
     def checkbattle(self):
-        if self.step == 10:
+        if self.step == random.randrange(1, 300):
             print "random battle"
             self.step=0    
         
