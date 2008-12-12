@@ -2,7 +2,8 @@ import pygame, sys,os
 from player import Player
 from gameobject import GameObject
 from Scene import Scene
-from pygame.locals import * 
+from pygame.locals import *
+
 
 
 class HouseScene(Scene):
@@ -70,10 +71,10 @@ class HouseScene(Scene):
         self.objects.append(GameObject(0,0,"",pygame.Rect(275,0,11,156)))
         self.objects.append(GameObject(0,0,"",pygame.Rect(42,176,12,8)))
         self.objects.append(GameObject(0,0,"",pygame.Rect(122,176,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(150,112,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(150,64,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(214,64,12,8)))
-        self.objects.append(GameObject(0,0,"",pygame.Rect(214,112,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(170,112,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(170,64,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(234,64,12,8)))
+        self.objects.append(GameObject(0,0,"",pygame.Rect(234,112,12,8)))
         
     
     def update(self):
@@ -156,7 +157,7 @@ class HouseScene(Scene):
         playerrect = pygame.Rect(pl.x,pl.y,18,24)
         mainrect=GameObject(0,0,"",pygame.Rect(72,291,103-72,294-291))#collision for a building (eating place)
         if (playerrect.colliderect(mainrect)):
-            self.game.currentScene=self.game.mainscene
+            self.game.currentScene=self.game.MainScene
             
             
             
