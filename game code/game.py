@@ -37,11 +37,13 @@ class Game:
             
     def gotoHouse(self):
         self.currentScene=HouseScene()
+        self.currentScene.game=self.mainscene.game
     def gotoMain(self):
-        self.currentScene=MainScene()    
+        self.currentScene=self.mainscene#MainScene()
+        #self.currentScene.game=self    
         
     def input(self,events): 
-     for event in events: 
+     for event in events:         
       if event.type == QUIT:
          pygame.display.quit()
          print "quit"
