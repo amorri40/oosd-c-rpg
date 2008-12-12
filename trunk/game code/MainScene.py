@@ -70,7 +70,7 @@ class MainScene(Scene):
         this should be called at the start of the scene.
         """
         
-        self.objects.append(GameObject(200,200,"",pygame.Rect(48,96,190-48,176-96)))#collision for a building
+        self.objects=[GameObject(200,200,"",pygame.Rect(48,96,190-48,176-96))]#collision for a building
         self.objects.append(GameObject(200,200,"",pygame.Rect(240,96,432-240,176-96)))#collision for a building
         self.objects.append(GameObject(200,200,"",pygame.Rect(512,96,720-512,192-96)))#collision for a building
         self.objects.append(GameObject(48,224,"",pygame.Rect(48,224,240-48,304-208)))#collision for a building
@@ -192,6 +192,7 @@ class MainScene(Scene):
             self.game.currentScene=HouseScene()
             self.game.currentScene.game=self.game
             pl.y=pl.y+20
+            pl.vspeed=0
             self.viewy=self.viewy-20
             self.viewvspeed=0
         i=0

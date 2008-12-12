@@ -2,7 +2,7 @@ import sys, os, pygame
 from pygame.locals import *
 from Scene import Scene
 
-class menuScreen(Scene): #Menu class for the menu screen
+class BattleScreen(Scene): #Battle class for the battle screen
  def __init__(self, width=300,height=300):
     pygame.init()#starts pygame
     self.width=width#sets width of window
@@ -18,15 +18,9 @@ class menuScreen(Scene): #Menu class for the menu screen
         """
         Handle all input events here
         """
+        #print "r"
         for event in events:
+         #if event.type == KEYDOWN:
             if event.key == K_RETURN:#starts the game
                 self.game.gotoMain()
-<<<<<<< .mine
                 #print "r"
-=======
-            if event.key == K_ESCAPE:#quits the game
-                sys.exit(0)
->>>>>>> .r83
-
-
-
