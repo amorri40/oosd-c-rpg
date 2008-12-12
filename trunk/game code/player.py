@@ -1,5 +1,6 @@
 import pygame, sys,os
 import random
+from BattleScene import BattleScreen
 class Player:
     
     def __init__(self):
@@ -20,9 +21,11 @@ class Player:
         self.player_sprite = self.player_up
         self.step=0 #which step its on used for random battles
     
-    def checkbattle(self):
+    def checkbattle(self,game):
         if self.step == random.randrange(1, 600):
             print "random battle"
+            game.currentScene=BattleScreen()
+            game.currentScene.game=game
             self.step=0    
         
     def move(self) :
