@@ -9,7 +9,8 @@ class Battle:
     #Create two characters to battle
     def __init__(self):
 
-        self.player1 = Character('Jordan', 100, 20, 20)
+        plImg = pygame.image.load(os.path.join("images","player.png"))
+        self.player1 = Character('Jordan', 100, 20, 20, plImg)
         
         #Create a random integer and then pass it to the Enemy constructor to choose Enemy level 
         ra = randint(1,4)
@@ -23,7 +24,7 @@ class Battle:
         
         pygame.time.wait(5000)
         
-        attackPlayer()
+        self.attackPlayer()
 
     #A method to attack the Player
     def attackPlayer(self):
@@ -42,7 +43,5 @@ class Battle:
         self.player1.specialAttack(self.enemy)
 
      
-fi = Battle()
-        
-fi.attackEnemy()
+
 

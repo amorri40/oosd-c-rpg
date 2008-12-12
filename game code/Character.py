@@ -1,10 +1,12 @@
-
+import sys, os, pygame
+from pygame.locals import *
 
 class Character:
 
     #Set up a character with a certain attributes
-    def __init__(self, name1, health, attackPower, defense):
+    def __init__(self, name1, health, attackPower, defense, img):
 
+        self.img = img    
         self.name = name1
         self.health = health
         self.attackPower = attackPower
@@ -58,7 +60,18 @@ class Character:
 
         self.name = na
 
-
+    #Set the Character Img
+    def setImg(self, im):
+        
+        self.img = im
+        
+    #get the Character Img
+    def getImg(self):
+    
+        return self.img
+    
+    
+    
     #A method to attack another Character
     def attack(self, pl):
 

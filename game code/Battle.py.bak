@@ -1,23 +1,49 @@
+import pygame, sys,os
+from pygame.locals import *
+from random import randint
 from Character import Character
+from Enemy import Enemy
 
 class Battle:
 
     #Create two characters to battle
     def __init__(self):
 
-        self.player1 = Character(100, 20, 20)
-        self.enemy = Character(80, 10, 10)
+        plImg = pygame.image.load(os.path.join("images","player.png"))
+        self.player1 = Character('Jordan', 100, 20, 20, plImg)
+        
+        #Create a random integer and then pass it to the Enemy constructor to choose Enemy level 
+        ra = randint(1,4)
+        self.enemy = Enemy(ra)
 
 
     #A method to attack the Enemy
     def attackEnemy(self):
 
         self.player1.attack(self.enemy)
-
+        
+        pygame.time.wait(5000)
+        
+        self.attackPlayer()
 
     #A method to attack the Player
     def attackPlayer(self):
 
         self.enemy.attack(self.player1)
-
+        
+        
+        
+        
+        
     
+    
+    #A method to use a special attack on an Enemy
+    def useSpecialAttack(self):
+        
+        self.player1.specialAttack(self.enemy)
+
+     
+fi = Battle()
+        
+fi.attackEnemy()
+
