@@ -22,9 +22,9 @@ class Battle:
 
         self.player1.attack(self.enemy)
         
-        pygame.time.wait(5000)
+        #pygame.time.wait(5000)
         
-        self.attackPlayer()
+        #self.attackPlayer()
 
     #A method to attack the Player
     def attackPlayer(self):

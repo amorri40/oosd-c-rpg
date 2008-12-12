@@ -3,8 +3,13 @@ from pygame.locals import *
 from MainScene import MainScene
 from splashscreen import Splashscreen
 from HouseScene import HouseScene
+
+
+from BattleScene     import BattleScreen
 from menuScreen import menuScreen
+
  
+
 
 
 

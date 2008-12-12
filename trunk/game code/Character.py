@@ -11,6 +11,7 @@ class Character:
         self.health = health
         self.attackPower = attackPower
         self.defense = defense
+        self.dead = False
         #self.magic = magic
 
     #Set the Character's health to a specified integer
@@ -70,12 +71,19 @@ class Character:
     
         return self.img
     
+    #get if a player is dead
+    def getDead(self):
+        
+        return self.dead
     
+    def setDead(self):
+        
+        self.dead = True
     
     #A method to attack another Character
     def attack(self, pl):
 
-        temp = pl.getHealth() - self.attackPower + pl.getDefense()
+        temp = pl.getHealth() - self.attackPower
         pl.setHealth(temp)
 
         print "----------"
@@ -96,7 +104,7 @@ class Character:
         if player.getHealth() <= 0:
             
             print str(player.getName()) + " has been killed!"
-            
+            player.setDead()
 
 
     #A method for a special attack
