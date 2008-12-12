@@ -175,11 +175,17 @@ class MainScene(Scene):
               pl.moveLeft()
               self.viewhspeed=0.2
           if event.type == KEYUP:
+           """
+           Set the player speed to 0 as stops when key is UP
+           """
            pl.vspeed=0
            pl.hspeed=0
            self.viewhspeed=0
            self.viewvspeed=0
            if event.key == K_RETURN:
+                """
+                Hide the dialog box when return is pressed
+                """
                 self.di.visible=False
     
     
@@ -209,7 +215,10 @@ class MainScene(Scene):
             else:
                 self.objects[i].nocollision()
             i=i+1
-            
+
+"""
+unit test
+"""            
 if __name__ == '__main__':
     pygame.init()
     running = True
@@ -227,7 +236,7 @@ if __name__ == '__main__':
     
     pygame.display.flip() 
     currentScene=MainScene()
-    #currentScene.game=Game(currentScene)
+    
     while running: 
             input(pygame.event.get())
             pygame.display.flip() 
