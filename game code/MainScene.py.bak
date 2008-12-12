@@ -110,7 +110,7 @@ class MainScene(Scene):
         pl.move() #move the player to the new position
         self.checkForCollisions() #check if the player collides with any game object
         self.moveScene()#move the scene when the player moves
-        pl.checkbattle()#check if random battle has occured
+        pl.checkbattle(self.game)#check if random battle has occured
         
     def draw(self):
         

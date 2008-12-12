@@ -6,14 +6,15 @@ from Character import Character
 class Enemy(Character):
 
     def __init__(self, enemyLevel):
-
+        print 'enemy'
         self.enemyL = enemyLevel
         
         self.name = 'J'
         self.health = 0
         self.attackPower = 0
         self.defense = 0
-
+        self.dead = False        
+        
         #print str(self.getHealth())            
 
         self.createEnemy()

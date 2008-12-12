@@ -3,17 +3,19 @@ from pygame.locals import *
 from MainScene import MainScene
 from splashscreen import Splashscreen
 from HouseScene import HouseScene
-from menuScreen import menuScreen
- 
-pygame.init()
-running = True
- 
-window = pygame.display.set_mode((300, 300)) 
-pygame.display.set_caption('RPG game coursework') 
 
+
+from BattleScene     import BattleScreen
+from menuScreen import menuScreen
+
+ 
+
+<<<<<<< .mine
 pygame.display.flip() 
  
-ms = menuScreen()
+ms = BattleScreen()
+=======
+>>>>>>> .r95
 
 
 
@@ -60,6 +62,15 @@ class Game:
          self.currentScene.event(events) 
 
 if __name__ == '__main__':
+ pygame.init()
+ running = True
+ 
+ window = pygame.display.set_mode((300, 300)) 
+ pygame.display.set_caption('RPG game coursework') 
+
+ pygame.display.flip() 
+ 
+ ms = menuScreen()
  g = Game(ms)
  g.mainscene.game = g
  g.run()
