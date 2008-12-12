@@ -5,21 +5,16 @@ from splashscreen import Splashscreen
 from HouseScene import HouseScene
 from menuScreen import menuScreen
  
-pygame.init()
-running = True
- 
-window = pygame.display.set_mode((300, 300)) 
-pygame.display.set_caption('RPG game coursework') 
 
-pygame.display.flip() 
- 
-ms = menuScreen()
 
 
 
 
 
 class Game:
+    """
+    The game class used fro running the game
+    """
     def __init__(self,scene=None):
         self.mainscene=MainScene()
         if scene==None:
@@ -33,7 +28,10 @@ class Game:
         
         #splash = Splashscreen()
     def run(self):
-         while running: 
+        """
+        The run method to run the whole game the main game loop
+        """
+        while running: 
             self.input(pygame.event.get())
             pygame.display.flip() 
             self.currentScene.draw()
@@ -53,6 +51,16 @@ class Game:
       else: 
          self.currentScene.event(events) 
 
-g = Game(ms)
-g.mainscene.game = g
-g.run()
+if __name__ == '__main__':
+ pygame.init()
+ running = True
+ 
+ window = pygame.display.set_mode((300, 300)) 
+ pygame.display.set_caption('RPG game coursework') 
+
+ pygame.display.flip() 
+ 
+ ms = menuScreen()
+ g = Game(ms)
+ g.mainscene.game = g
+ g.run()

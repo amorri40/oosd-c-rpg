@@ -19,10 +19,11 @@ class menuScreen(Scene): #Menu class for the menu screen
         Handle all input events here
         """
         for event in events:
-            if event.key == K_RETURN:#starts the game
+            if event.type == KEYDOWN:
+             if event.key == K_RETURN:#starts the game
                 self.game.gotoMain()
                 #print "r"
-            if event.key == K_ESCAPE:#quits the game
+             if event.key == K_ESCAPE:#quits the game
                 sys.exit(0)
 
 
