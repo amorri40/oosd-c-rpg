@@ -3,7 +3,7 @@ from pygame.locals import *
 from MainScene import MainScene
 from splashscreen import Splashscreen
 from HouseScene import HouseScene
-from menuScreen import menuScreen
+from menuScene import menuScene
  
 pygame.init()
 running = True
@@ -20,12 +20,15 @@ ms = menuScreen()
 
 
 class Game:
-    def __init__(self,scene):
+    def __init__(self,scene=None):
         self.mainscene=MainScene()
-        
-        self.currentScene = menuScreen()#self.mainscene
-        self.currentScene.game=self
-        
+        if scene==None:
+         
+         self.currentScene = menuScreen()#self.mainscene
+         
+        else:
+            self.currentScene=scene
+        self.currentScene.game=self    
         
         
         #splash = Splashscreen()
