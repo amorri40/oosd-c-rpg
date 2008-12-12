@@ -29,7 +29,7 @@ class HouseScene(Scene):
         """
         global background,view
         
-        background = pygame.Surface((1042,1024))
+        background = pygame.Surface((300,300))
         
         background = background.convert()
         backimg = os.path.join("images","housebackground.jpg")
