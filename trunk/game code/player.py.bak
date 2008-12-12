@@ -24,7 +24,7 @@ class Player:
     def checkbattle(self,game):
         if self.step == random.randrange(1, 600):
             print "random battle"
-            game.currentScene=BattleScene()
+            game.currentScene=BattleScreen()
             game.currentScene.game=game
             self.step=0    
         

@@ -93,10 +93,10 @@ class Character:
 
     #A method to check if someone has died   
     def checkIfDead(self, player):
-        
         if player.getHealth() <= 0:
             
             print str(player.getName()) + " has been killed!"
+            
 
 
     #A method for a special attack
@@ -125,13 +125,4 @@ class Character:
         temp = pl.getHealth() - self.magic
         pl.setHealth(temp)
         
-            
-    
-        
-            
-        
-            
-
-
-
-        
+ 

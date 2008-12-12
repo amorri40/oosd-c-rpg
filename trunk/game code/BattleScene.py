@@ -12,12 +12,17 @@ class BattleScreen(Scene): #Battle class for the battle screen
     self.background=pygame.image.load(os.path.join("images","battlebackground.jpg"))#loads the image ready for use
     self.screen=pygame.display.set_mode((self.width,self.height))#displays the screen
  def draw(self):
+        self.update()
         self.screen.blit(self.background,(0,0))
         self.screen.blit(self.battle.enemy.getImg(),(50,220))
         self.screen.blit(self.battle.player1.getImg(),(450,250))
 
  def update(self):
-    u=1
+    if self.battle.enemy.health==0:
+     self.goback()
+    
+ def goback(self):
+    self.game.currentScene=self.game.mainscene
     
  def event(self,events): 
         """
