@@ -159,21 +159,25 @@ class MainScene(Scene):
             
         for event in events:  
           if event.type == KEYDOWN:
-            pl.step = pl.step+1
+            
             if event.key == K_ESCAPE:
               sys.exit(0)
             if event.key == K_UP:
               pl.moveUp()
               self.viewvspeed=0.2
+              pl.step = pl.step+1
             if event.key == K_DOWN:
               pl.moveDown()
               self.viewvspeed=-0.2
+              pl.step = pl.step+1
             if event.key == K_RIGHT:
               pl.moveRight()
               self.viewhspeed=-0.2
+              pl.step = pl.step+1
             if event.key == K_LEFT:
               pl.moveLeft()
               self.viewhspeed=0.2
+              pl.step = pl.step+1
           if event.type == KEYUP:
            """
            Set the player speed to 0 as stops when key is UP

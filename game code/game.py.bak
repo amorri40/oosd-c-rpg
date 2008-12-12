@@ -10,12 +10,7 @@ from menuScreen import menuScreen
 
  
 
-<<<<<<< .mine
-pygame.display.flip() 
- 
-ms = BattleScreen()
-=======
->>>>>>> .r95
+
 
 
 
