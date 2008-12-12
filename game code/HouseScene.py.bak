@@ -59,7 +59,8 @@ class HouseScene(Scene):
     def createObjects(self):
         """
         Create the housescene game objects and puts them into the objects array,
-        this should be called at the start of the scene.
+        this should be called at the start of the scene. In here are the 
+        collision blocks used for the walls and the tables in the building.
         """
         
         self.objects = [GameObject(0,0,"",pygame.Rect(0,0,300,50))]
@@ -177,6 +178,10 @@ class HouseScene(Scene):
                              
             i=i+1
         
+    """
+    This is the unit test used to test this section of the game
+    by itself.
+    """
 if __name__ == '__main__':
     pygame.init()
     
