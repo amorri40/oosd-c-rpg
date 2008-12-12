@@ -6,6 +6,7 @@ from pygame.locals import *
 
 
 
+
 class HouseScene(Scene):
     """
     The Housescene class is where the player wanders about a house level
@@ -58,7 +59,8 @@ class HouseScene(Scene):
     def createObjects(self):
         """
         Create the housescene game objects and puts them into the objects array,
-        this should be called at the start of the scene.
+        this should be called at the start of the scene. In here are the 
+        collision blocks used for the walls and the tables in the building.
         """
         
         self.objects = [GameObject(0,0,"",pygame.Rect(0,0,300,50))]
@@ -79,25 +81,27 @@ class HouseScene(Scene):
     
     def update(self):
         """
-        The logic of the main game is performed here. This will be called everytime the player moves and the screen is redrawn.
+        The logic of the main game is performed here. This will be called 
+        everytime the player moves and the screen is redrawn.
         """
-        pl.move() #move the player to the new position
-        self.checkForCollisions() #check if the player collides with any game object
-        self.moveScene()#move the scene when the player moves
+        pl.move() 
+        self.checkForCollisions() 
+        self.moveScene()
         
     def draw(self):
         """
-        This will be called for every frame that is drawn, it will draw the scene and update the game.
+        This will be called for every frame that is drawn, it will draw the 
+        scene and update the game.
         """
-        view.blit(background, (0, 0)) #draw the background image onto the view
+        view.blit(background, (0, 0)) 
         
-        self.update()#update the scene
+        self.update()
         
         
-        pl.draw(view)#draw the player
+        pl.draw(view)
         
-        screenbackground.blit(view, (self.viewx, self.viewy))#draw the view onto screenbackground
-        screen.blit(screenbackground,(0,0))#draw the main game to the screen
+        screenbackground.blit(view, (self.viewx, self.viewy))
+        screen.blit(screenbackground,(0,0))
         
     def moveScene(self):
         """
@@ -150,12 +154,14 @@ class HouseScene(Scene):
            self.viewvspeed=0
     
     
+    
     def checkForCollisions(self):
         """
-        This method checks the player rectangle against all game rectangles. This is called everytime the room is drawn
+        This method checks the player rectangle against all game rectangles. 
+        This is called everytime the room is drawn
         """
         playerrect = pygame.Rect(pl.x,pl.y,18,24)
-        mainrect=GameObject(0,0,"",pygame.Rect(72,291,103-72,294-291))#collision for a building (eating place)
+        mainrect=GameObject(0,0,"",pygame.Rect(72,291,103-72,294-291))
         if (playerrect.colliderect(mainrect)):
             self.game.currentScene=self.game.mainscene
             
@@ -169,6 +175,30 @@ class HouseScene(Scene):
                 self.viewy=self.viewyprevious
                 pl.x=pl.xprevious
                 pl.y=pl.yprevious
-              
+                             
             i=i+1
         
+    """
+    This is the unit test used to test this section of the game
+    by itself.
+    """
+if __name__ == '__main__':
+    pygame.init()
+    
+ 
+    window = pygame.display.set_mode((300, 300)) 
+    pygame.display.set_caption('RPG game coursework') 
+
+    def input(events): 
+     for event in events:         
+      if event.type == QUIT:
+         pygame.display.quit()
+      else: 
+         currentScene.event(events)
+    
+    pygame.display.flip() 
+    currentScene=HouseScene()
+    while True: 
+            input(pygame.event.get())
+            pygame.display.flip() 
+            currentScene.draw()

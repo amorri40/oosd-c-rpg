@@ -113,7 +113,7 @@ class MainScene(Scene):
         pl.checkbattle()#check if random battle has occured
         
     def draw(self):
-        print "draw"
+        
         """
         This will be called for every frame that is drawn, it will
         draw the scene and update the game.
