@@ -3,13 +3,14 @@
 class Character:
 
     #Set up a character with a certain attributes
-    def __init__(self, health, attackPower, defense):
+    def __init__(self, name1, health, attackPower, defense, img):
 
-        self.name = 'Jordan'
+        self.img = img    
+        self.name = name1
         self.health = health
         self.attackPower = attackPower
         self.defense = defense
-
+        #self.magic = magic
 
     #Set the Character's health to a specified integer
     def setHealth(self, h):
@@ -53,15 +54,38 @@ class Character:
         return self.name
 
 
+    #Set the Character's name
+    def setName(self, na):
+
+        self.name = na
+
+    #Set the Character Img
+    def setImg(self, im):
+        
+        self.img = im
+        
+    #get the Character Img
+    def getImg(self):
+    
+        return self.img
+    
+    
+    
     #A method to attack another Character
     def attack(self, pl):
 
-        temp = pl.getHealth() - self.attackPower
+        temp = pl.getHealth() - self.attackPower + pl.getDefense()
         pl.setHealth(temp)
 
         print "----------"
+        print ""
+        print str(self.getName())+ " attacks " + str(pl.getName())
+        print ""
+        
         print str(pl.getName()) + " has lost " + str(self.getAttackPower()) + " health points."
+        print ""
         print str(pl.getName()) + " now has " + str(pl.getHealth()) + " health points."
+        print ""
         print "----------"
         
         self.checkIfDead(pl)
@@ -72,6 +96,34 @@ class Character:
         if player.getHealth() <= 0:
             
             print str(player.getName()) + " has been killed!"
+
+
+    #A method for a special attack
+    def specialAttack(self, pl):
+        
+        temp = pl.getHealth() - self.attackPower * 3
+        pl.setHealth(temp)
+        
+        print "----------"
+        print ""
+        print str(self.getName())+ " uses his special attack on " + str(pl.getName())
+        print ""
+        
+        print str(pl.getName()) + " has lost " + str(self.getAttackPower() * 3) + " health points."
+        print ""
+        print str(pl.getName()) + " now has " + str(pl.getHealth()) + " health points."
+        print ""
+        print "----------"
+        
+        self.checkIfDead(pl)
+
+    
+    #A method to use a magic attack
+    def useMagic(self, pl):
+
+        temp = pl.getHealth() - self.magic
+        pl.setHealth(temp)
+        
             
     
         
