@@ -23,8 +23,8 @@ class Game:
     def __init__(self,scene):
         self.mainscene=MainScene()
         
-        self.currentScene = self.mainscene
-        
+        self.currentScene = menuScreen()#self.mainscene
+        self.currentScene.game=self
         
         
         
