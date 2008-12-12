@@ -3,7 +3,7 @@ from pygame.locals import *
 from MainScene import MainScene
 from splashscreen import Splashscreen
 from HouseScene import HouseScene
-
+from menuScreen import menuScreen
  
 pygame.init()
 running = True
@@ -13,7 +13,7 @@ pygame.display.set_caption('RPG game coursework')
 
 pygame.display.flip() 
  
-ms = MainScene()
+ms = menuScreen()
 
 
 
