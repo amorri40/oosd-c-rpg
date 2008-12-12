@@ -9,7 +9,7 @@ class Character:
         self.health = health
         self.attackPower = attackPower
         self.defense = defense
-
+        #self.magic = magic
 
     #Set the Character's health to a specified integer
     def setHealth(self, h):
@@ -62,7 +62,7 @@ class Character:
     #A method to attack another Character
     def attack(self, pl):
 
-        temp = pl.getHealth() - self.attackPower
+        temp = pl.getHealth() - self.attackPower + pl.getDefense()
         pl.setHealth(temp)
 
         print "----------"
@@ -106,8 +106,12 @@ class Character:
         self.checkIfDead(pl)
 
     
+    #A method to use a magic attack
+    def useMagic(self, pl):
 
-            
+        temp = pl.getHealth() - self.magic
+        pl.setHealth(temp)
+        
             
     
         
