@@ -2,7 +2,8 @@ import pygame, sys,os
 from player import Player
 from gameobject import GameObject
 from Scene import Scene
-from pygame.locals import * 
+from pygame.locals import *
+
 
 
 class HouseScene(Scene):

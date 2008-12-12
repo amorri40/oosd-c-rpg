@@ -70,7 +70,7 @@ class MainScene(Scene):
         this should be called at the start of the scene.
         """
         
-        self.objects = [GameObject(20,20,os.path.join("images","player.png"),pygame.Rect(20,20,18,24))]
+        #self.objects = [GameObject(20,20,os.path.join("images","player.png"),pygame.Rect(20,20,18,24))]
         #self.objects.append(GameObject(200,200,os.path.join("images","player.png"),pygame.Rect(200,200,18,24)))
         #self.objects.append(GameObject(0,0,"",pygame.Rect(16,32,736-16,608-32)))#collision for boundary
         self.objects.append(GameObject(200,200,"",pygame.Rect(48,96,190-48,176-96)))#collision for a building

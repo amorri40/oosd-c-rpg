@@ -20,7 +20,7 @@ class Splashscreen:
         pygame.time.wait(1000)
 splash = Splashscreen()
 running=True
-print "please hold down enter to start game"
+print "please hold down the enter key to load the menu"
 while running:
  for event in pygame.event.get():  
           if event.type == KEYDOWN:
