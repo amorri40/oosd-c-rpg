@@ -12,6 +12,7 @@ class MainScene(Scene):
     The Mainscene class is where the main game takes place.
     """
     def __init__(self):
+        
         """
         Constructor used for initialising the main scene
         """
@@ -112,6 +113,7 @@ class MainScene(Scene):
         pl.checkbattle()#check if random battle has occured
         
     def draw(self):
+        
         """
         This will be called for every frame that is drawn, it will
         draw the scene and update the game.
@@ -177,7 +179,7 @@ class MainScene(Scene):
            pl.hspeed=0
            self.viewhspeed=0
            self.viewvspeed=0
-          if event.key == K_RETURN:
+           if event.key == K_RETURN:
                 self.di.visible=False
     
     
@@ -208,3 +210,27 @@ class MainScene(Scene):
                 self.objects[i].nocollision()
             i=i+1
             
+if __name__ == '__main__':
+    pygame.init()
+    running = True
+ 
+    window = pygame.display.set_mode((300, 300)) 
+    pygame.display.set_caption('RPG game coursework') 
+
+    def input(events): 
+     for event in events:         
+      if event.type == QUIT:
+         pygame.display.quit()
+         print "quit"
+      else: 
+         currentScene.event(events)
+    
+    pygame.display.flip() 
+    currentScene=MainScene()
+    #currentScene.game=Game(currentScene)
+    while running: 
+            input(pygame.event.get())
+            pygame.display.flip() 
+            currentScene.draw()
+            
+    
