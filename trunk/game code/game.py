@@ -3,7 +3,7 @@ from pygame.locals import *
 from MainScene import MainScene
 from splashscreen import Splashscreen
 from HouseScene import HouseScene
-from menuScene import menuScene
+from menuScreen import menuScreen
  
 pygame.init()
 running = True
